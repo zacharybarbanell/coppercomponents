@@ -1,0 +1,16 @@
+{
+    "multipart" : [
+        {   "when" : { "down" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate" }},
+        {   "when" : { "up" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 180 }},
+        {   "when" : { "south" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90 }},
+        {   "when" : { "west" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 90 }},
+        {   "when" : { "north" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 180 }},
+        {   "when" : { "east" : "true" },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 270 }}
+    ]
+}
