@@ -1,16 +1,29 @@
 {
     "multipart" : [
-        {   "when" : { "down" : "true" },
+        {   "when" : { "AND" : [ { "down" : "true" }, { "powered" : "false" } ] },
             "apply" : { "model" : "coppercomponents:block/copper_grate" }},
-        {   "when" : { "up" : "true" },
+        {   "when" : { "AND" : [ { "up" : "true" }, { "powered" : "false" } ] },
             "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 180 }},
-        {   "when" : { "south" : "true" },
+        {   "when" : { "AND" : [ { "south" : "true" }, { "powered" : "false" } ] },
             "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90 }},
-        {   "when" : { "west" : "true" },
+        {   "when" : { "AND" : [ { "west" : "true" }, { "powered" : "false" } ] },
             "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 90 }},
-        {   "when" : { "north" : "true" },
+        {   "when" : { "AND" : [ { "north" : "true" }, { "powered" : "false" } ] },
             "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 180 }},
-        {   "when" : { "east" : "true" },
-            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 270 }}
+        {   "when" : { "AND" : [ { "east" : "true", "powered" : "false" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate", "x" : 90, "y" : 270 }},
+
+        {   "when" : { "AND" : [ { "down" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open" }},
+        {   "when" : { "AND" : [ { "up" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open", "x" : 180 }},
+        {   "when" : { "AND" : [ { "south" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open", "x" : 90 }},
+        {   "when" : { "AND" : [ { "west" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open", "x" : 90, "y" : 90 }},
+        {   "when" : { "AND" : [ { "north" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open", "x" : 90, "y" : 180 }},
+        {   "when" : { "AND" : [ { "east" : "true" }, { "powered" : "true" } ] },
+            "apply" : { "model" : "coppercomponents:block/copper_grate_open", "x" : 90, "y" : 270 }}
     ]
 }
