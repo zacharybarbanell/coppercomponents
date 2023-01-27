@@ -41,7 +41,12 @@ public class CopperComponents {
     // Creates a new Block with the id "coppercomponents:example_block", combining
     // the namespace and path
     public static final RegistryObject<Block> EXAMPLE_BLOCK = BLOCKS.register("copper_grate", () -> new GrateBlock(
-            BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE).isValidSpawn((a,b,c,d) -> {return false;}).noOcclusion().requiresCorrectToolForDrops().sound(SoundType.COPPER)));
+            BlockBehaviour.Properties.of(Material.METAL, MaterialColor.COLOR_ORANGE)
+                    .isValidSpawn((a, b, c, d) -> {
+                        return false;
+                    })
+                    .noOcclusion().requiresCorrectToolForDrops().sound(SoundType.COPPER).strength(5.0F)));
+
     // Creates a new BlockItem with the id "coppercomponents:example_block",
     // combining the namespace and path
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("copper_grate",
