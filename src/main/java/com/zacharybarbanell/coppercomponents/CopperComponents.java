@@ -1,6 +1,9 @@
 package com.zacharybarbanell.coppercomponents;
 
 import com.mojang.logging.LogUtils;
+import com.zacharybarbanell.coppercomponents.conductivewater.WaterPower;
+import com.zacharybarbanell.coppercomponents.conductivewater.WaterPowerAttacher;
+
 import net.minecraft.client.Minecraft;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
@@ -22,6 +25,8 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+
+import org.antlr.v4.parse.ANTLRParser.finallyClause_return;
 import org.slf4j.Logger;
 
 // The value here should match an entry in the META-INF/mods.toml file
@@ -52,6 +57,8 @@ public class CopperComponents {
     public static final RegistryObject<Item> EXAMPLE_BLOCK_ITEM = ITEMS.register("copper_grate",
             () -> new BlockItem(EXAMPLE_BLOCK.get(), new Item.Properties().tab(CreativeModeTab.TAB_REDSTONE)));
 
+    public static final IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
+
     public CopperComponents() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
@@ -65,6 +72,9 @@ public class CopperComponents {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        modEventBus.register(WaterPower.class);
+        MinecraftForge.EVENT_BUS.register(WaterPowerAttacher.class);
     }
 
     private void commonSetup(final FMLCommonSetupEvent event) {
@@ -91,4 +101,5 @@ public class CopperComponents {
             LOGGER.info("MINECRAFT NAME >> {}", Minecraft.getInstance().getUser().getName());
         }
     }
+    
 }
