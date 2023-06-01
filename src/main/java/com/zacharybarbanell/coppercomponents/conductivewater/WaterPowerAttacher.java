@@ -30,13 +30,13 @@ public class WaterPowerAttacher {
     private static class WaterPowerProvider implements ICapabilitySerializable<ListTag> {
 
         private final WaterPower backend = new WaterPower();
+        LazyOptional<WaterPower> optionalStorage = LazyOptional.of(() -> backend);
 
         public static final ResourceLocation IDENTIFIER = new ResourceLocation("coppercomponents", "waterpower");
 
         @Override
         public <T> @NotNull LazyOptional<T> getCapability(@NotNull Capability<T> cap, @Nullable Direction side) {
-            // TODO Auto-generated method stub
-            return null;
+            return WaterPower.INSTANCE.orEmpty(cap, optionalStorage);
         }
 
         @Override
